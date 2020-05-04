@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h1>EDICION DE DOCUMENTOS</h1>
+
+	<h:form>
+	   
+	    <h:panelGrid columns="3" style="margin-top: 10px">
+	        <p:commandButton value="inicializar" action="#{editor.guardar}" type="button" onclick="PF('editorWidget').clear();" icon="pi pi-times" />
+	        <p:commandButton value="guardar" update="display" oncomplete="PF('dlg').show()" icon="pi pi-save" />
+	        <p:commandButton value="vista previa" update="display" oncomplete="PF('dlg').show()" icon="pi pi-save" />
+	    </h:panelGrid>
+	     
+	    <p:dialog header="Content" widgetVar="dlg" showEffect="fade" hideEffect="fade">
+	        <h:outputText id="display" value="Guardado exitosamente" escape="false" />
+	    </p:dialog>   
+    
+	   <p:editor  value="#{editor.value}" id="editor"  height="1000" width="1000" controls="bold italic underline strikethrough center justify cut copy paste pastetext print"/>
+	   
+	   
+
+
+	</h:form>
+
+</h:body>
+</html>
